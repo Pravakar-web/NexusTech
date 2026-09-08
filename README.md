@@ -1,44 +1,52 @@
-# Product Information Website
+# TechMart Pro — Product Information Catalog
 
-A clean, modern, and responsive **Product Information Website** built with semantic **HTML5**, modern **CSS3**, and **vanilla JavaScript** without any external libraries or frameworks.
+A simple, clean, and modern **Product Information Website** built using pure **HTML5**, modern **CSS3**, and **vanilla JavaScript** with zero external libraries or frameworks.
 
-## 🚀 Features
+![TechMart Pro Banner](https://img.shields.io/badge/HTML5-Semantic%20Table-E34F26?logo=html5&logoColor=white)
+![CSS3 Modern](https://img.shields.io/badge/CSS3-Design%20Tokens-1572B6?logo=css3&logoColor=white)
+![Vanilla JS](https://img.shields.io/badge/JavaScript-Vanilla%20ES6+-F7DF1E?logo=javascript&logoColor=black)
 
-- **Semantic HTML5 Table**: Complete structure using `<table>`, `<thead>`, `<tbody>`, and `<tfoot>`.
-- **Product Details Included**:
-  - Product Name
-  - Brand
-  - Category
-  - Price
-  - Availability (In Stock / Low Stock / Out of Stock badges)
-  - Rating (Visual Star + Score)
-  - Color (Dot indicator + Color label)
-  - Description
-- **Modern & Clean Styling**:
-  - Alternating row zebra striping (`nth-child(even)`).
-  - Smooth hover animations and custom status pill badges.
-  - Interactive selected state with primary accent borders.
-- **Fully Responsive**: Overflow-safe table wrapper optimized for desktop, tablet, and mobile viewing.
-- **Vanilla JavaScript Interactions**:
-  - Click to select and highlight product rows.
-  - Dynamic status banner summarizing the selected product.
-  - Quick clear selection functionality.
-  - Live client-side search filter.
+---
+
+## ✨ Modern UI & Feature Highlights
+
+1. **Semantic HTML5 `<table>`**:
+   - Complete semantic structure with `<table>`, `<thead>`, `<tbody>`, and `<tfoot>`.
+   - **8 Core Details**: Product Name, Brand, Category, Price, Availability, Rating, Color, and Description.
+   - Styled product avatars with SKU subtitles and color swatches.
+
+2. **Ultra-Clean & Modern Styling (CSS3)**:
+   - **Dark / Light Mode**: Seamless theme toggle with local storage persistence.
+   - **Glassmorphism & Ambient Glow**: Subtle background gradient lighting and translucent sticky navbar.
+   - **Interactive Stat Metric Cards**: Highlights total listed items, average pricing, in-stock percentages, and top ratings.
+   - **Zebra Striping & Hover Elevation**: Alternating row backgrounds and smooth micro-hover lifts.
+
+3. **Rich Vanilla JavaScript Interactivity**:
+   - **Instant Row Selection**: Clicking a row highlights it with a primary gradient accent and updates the top status banner.
+   - **Interactive Column Sorting**: Click any table header (Name, Brand, Category, Price, Availability, Rating) to sort ascending or descending.
+   - **Multi-Filter System**: Filter by Category pills (Audio, Wearables, Peripherals, Displays), search query, or stock availability.
+   - **Slide-Over Quick-View Modal**: View full hardware specifications in an animated slide-over drawer.
+   - **CSV Export**: One-click catalog export to CSV.
+   - **Keyboard Shortcut**: Press `/` anywhere to focus the search bar.
+
+---
 
 ## 📂 Project Structure
 
 ```
-├── index.html   # Main semantic HTML5 markup
-├── style.css    # Clean CSS3 stylesheets & design tokens
-├── script.js    # Vanilla JavaScript interactions
-└── README.md    # Project documentation
+├── index.html   # Semantic HTML5 markup, modal, stats, and table
+├── style.css    # Modern CSS3 design tokens, dark/light themes, responsive rules
+├── script.js    # Vanilla JS (filters, sorting, modal, theme, selection)
+└── README.md    # Documentation
 ```
 
-## 🛠️ Getting Started
+---
 
-Simply open `index.html` in any modern web browser or serve it with any local development server:
+## 🚀 Getting Started
 
+Simply open `index.html` in your web browser:
 ```bash
-# Using VS Code Live Server or python
+# Optional: run a local server
 python -m http.server 8000
 ```
+Then visit `http://localhost:8000` in your browser.

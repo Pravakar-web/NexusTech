@@ -1,34 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Information | TechMart Catalog</title>
+  <meta name="description" content="Modern, interactive Product Information Catalog showcasing inventory data with rich HTML5 table semantics, CSS3 design tokens, and vanilla JavaScript.">
+  <title>Product Information | TechMart Pro Catalog</title>
   
-  <!-- Google Fonts: Inter & Outfit -->
+  <!-- Modern Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Background Decorative Gradients -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
   <!-- Navigation Bar -->
   <header class="navbar">
     <div class="nav-container">
       <a href="#" class="logo">
-        <span class="logo-icon">📦</span>
-        <span class="logo-text">TechMart</span>
+        <div class="logo-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <span class="logo-text">TechMart<span class="logo-accent">.pro</span></span>
       </a>
+
       <nav class="nav-menu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#products" class="nav-link active">Products</a>
-        <a href="#categories" class="nav-link">Categories</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#products" class="nav-link active">Catalog</a>
+        <a href="#analytics" class="nav-link">Analytics</a>
+        <a href="#inventory" class="nav-link">Inventory</a>
       </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <span class="theme-icon sun-icon">☀️</span>
+          <span class="theme-icon moon-icon">🌙</span>
+        </button>
+        <a href="#export" id="btn-export-csv" class="btn-primary-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Export Data</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -36,153 +63,466 @@
   <main class="main-content">
     <div class="container">
       
-      <!-- Header Section -->
-      <section class="page-header">
-        <div class="badge">Inventory Catalog 2026</div>
-        <h1 class="page-title">Product Information</h1>
-        <p class="page-subtitle">
-          Explore our curated collection of premium gadgets and accessories. Click on any product row to view instant highlights.
+      <!-- Hero Header Section -->
+      <section class="hero-section">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          <span>Live Inventory Hub &bull; 2026 Edition</span>
+        </div>
+        <h1 class="hero-title">Product Information</h1>
+        <p class="hero-subtitle">
+          Manage, inspect, and analyze real-time hardware specifications, availability rates, and pricing across your product catalog.
         </p>
       </section>
 
-      <!-- Interactive Status / Notification Card -->
+      <!-- Metric Stats Bar -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Total Listed</span>
+            <span class="stat-value" id="stat-total-count">6 Items</span>
+          </div>
+          <div class="stat-badge stat-badge-positive">+12% this mo</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Avg. Product Price</span>
+            <span class="stat-value" id="stat-avg-price">$304.50</span>
+          </div>
+          <div class="stat-badge stat-badge-neutral">Median: $314</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">In-Stock Rate</span>
+            <span class="stat-value" id="stat-stock-rate">83.3%</span>
+          </div>
+          <div class="stat-badge stat-badge-positive">5 Active</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-amber">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Top Rating</span>
+            <span class="stat-value">4.9 / 5.0</span>
+          </div>
+          <div class="stat-badge stat-badge-positive">Series 9</div>
+        </div>
+      </section>
+
+      <!-- Interactive Quick Status Toast / Selected Banner -->
       <div id="selection-banner" class="selection-banner">
         <div class="banner-content">
-          <span class="banner-icon">💡</span>
+          <div class="banner-icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
           <div class="banner-text" id="banner-message">
-            <strong>Interactive Tip:</strong> Click on any product in the table below to select and view its quick summary.
+            <span class="banner-tag">Pro Tip</span> Click on any table row or press the details button to view comprehensive specs and live actions.
           </div>
         </div>
-        <button id="clear-selection-btn" class="btn-clear hidden" title="Clear selection">✕ Clear</button>
+        <button id="clear-selection-btn" class="btn-clear hidden" title="Clear selection">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>Deselect</span>
+        </button>
       </div>
 
-      <!-- Table Card Wrapper -->
+      <!-- Main Table Card -->
       <div class="table-card">
-        <div class="table-card-header">
-          <div class="table-title-group">
-            <h2 class="table-title">Featured Products List</h2>
-            <span class="table-count" id="product-count">Showing 6 Products</span>
+        
+        <!-- Toolbar: Filters, Search, Category Tabs -->
+        <div class="table-toolbar">
+          <!-- Category Filter Pills -->
+          <div class="filter-pills" id="category-filters">
+            <button class="pill-btn active" data-category="all">All Items <span class="pill-count">6</span></button>
+            <button class="pill-btn" data-category="Audio">Audio <span class="pill-count">2</span></button>
+            <button class="pill-btn" data-category="Wearables">Wearables <span class="pill-count">1</span></button>
+            <button class="pill-btn" data-category="Peripherals">Peripherals <span class="pill-count">2</span></button>
+            <button class="pill-btn" data-category="Displays">Displays <span class="pill-count">1</span></button>
           </div>
-          <!-- Quick search filter -->
-          <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="table-search" placeholder="Filter by name, brand, category..." aria-label="Search products">
+
+          <!-- Search & Availability Controls -->
+          <div class="toolbar-controls">
+            <div class="search-box">
+              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="table-search" placeholder="Search by name, brand, spec..." aria-label="Search products">
+              <span class="search-shortcut">/</span>
+            </div>
+
+            <select id="stock-filter" class="custom-select" aria-label="Filter by availability">
+              <option value="all">All Availability</option>
+              <option value="in-stock">In Stock</option>
+              <option value="low-stock">Low Stock</option>
+              <option value="out-stock">Out of Stock</option>
+            </select>
           </div>
         </div>
 
-        <!-- Responsive Table Container -->
+        <!-- Table Information Summary Sub-header -->
+        <div class="table-sub-bar">
+          <div class="sub-bar-left">
+            <span class="sub-bar-dot"></span>
+            <span id="product-count" class="sub-bar-count">Showing 6 of 6 products</span>
+          </div>
+          <div class="sub-bar-right">
+            <span class="sort-hint">💡 Click column headers to sort</span>
+          </div>
+        </div>
+
+        <!-- Responsive HTML Table Container -->
         <div class="table-responsive">
           <table class="product-table" id="product-table">
             <thead>
               <tr>
                 <th scope="col" class="th-id">#</th>
-                <th scope="col" class="th-name">Product Name</th>
-                <th scope="col" class="th-brand">Brand</th>
-                <th scope="col" class="th-category">Category</th>
-                <th scope="col" class="th-price">Price</th>
-                <th scope="col" class="th-status">Availability</th>
-                <th scope="col" class="th-rating">Rating</th>
+                <th scope="col" class="th-name sortable" data-sort="name">
+                  <span>Product Name</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
+                <th scope="col" class="th-brand sortable" data-sort="brand">
+                  <span>Brand</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
+                <th scope="col" class="th-category sortable" data-sort="category">
+                  <span>Category</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
+                <th scope="col" class="th-price sortable" data-sort="price">
+                  <span>Price</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
+                <th scope="col" class="th-status sortable" data-sort="status">
+                  <span>Availability</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
+                <th scope="col" class="th-rating sortable" data-sort="rating">
+                  <span>Rating</span>
+                  <span class="sort-arrow">⇅</span>
+                </th>
                 <th scope="col" class="th-color">Color</th>
                 <th scope="col" class="th-desc">Description</th>
+                <th scope="col" class="th-action">Action</th>
               </tr>
             </thead>
             <tbody id="table-body">
-              <tr data-id="1">
+              <tr data-id="1" data-category="Audio" data-stock="in-stock" data-price="399.99" data-rating="4.8">
                 <td class="td-id">01</td>
-                <td class="td-name"><strong>WH-1000XM5 Wireless Headphones</strong></td>
-                <td class="td-brand">Sony</td>
-                <td class="td-category"><span class="badge-cat">Audio</span></td>
-                <td class="td-price">$399.99</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-purple">🎧</div>
+                    <div class="product-details-text">
+                      <strong>WH-1000XM5 Headphones</strong>
+                      <span class="product-sku">SKU: SNY-1005X</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Sony</span></td>
+                <td class="td-category"><span class="badge-cat cat-audio">Audio</span></td>
+                <td class="td-price"><span class="price-val">$399.99</span></td>
                 <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.8 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #1a1a1a;"></span> Midnight Black</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.8</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #1a1a1a;"></span>
+                    <span>Midnight Black</span>
+                  </div>
+                </td>
                 <td class="td-desc">Industry-leading noise cancellation with 30-hour battery life and ultra-comfortable lightweight design.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for WH-1000XM5">View</button>
+                </td>
               </tr>
 
-              <tr data-id="2">
+              <tr data-id="2" data-category="Wearables" data-stock="in-stock" data-price="429.00" data-rating="4.9">
                 <td class="td-id">02</td>
-                <td class="td-name"><strong>Apple Watch Series 9</strong></td>
-                <td class="td-brand">Apple</td>
-                <td class="td-category"><span class="badge-cat">Wearables</span></td>
-                <td class="td-price">$429.00</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-blue">⌚</div>
+                    <div class="product-details-text">
+                      <strong>Apple Watch Series 9</strong>
+                      <span class="product-sku">SKU: APL-W945</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Apple</span></td>
+                <td class="td-category"><span class="badge-cat cat-wearables">Wearables</span></td>
+                <td class="td-price"><span class="price-val">$429.00</span></td>
                 <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.9 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #3b4252;"></span> Midnight Navy</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.9</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #1e293b;"></span>
+                    <span>Midnight Navy</span>
+                  </div>
+                </td>
                 <td class="td-desc">Advanced health sensors, bright Always-On Retina display, and intuitive double-tap gesture control.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for Apple Watch Series 9">View</button>
+                </td>
               </tr>
 
-              <tr data-id="3">
+              <tr data-id="3" data-category="Peripherals" data-stock="low-stock" data-price="99.99" data-rating="4.7">
                 <td class="td-id">03</td>
-                <td class="td-name"><strong>MX Master 3S Wireless Mouse</strong></td>
-                <td class="td-brand">Logitech</td>
-                <td class="td-category"><span class="badge-cat">Peripherals</span></td>
-                <td class="td-price">$99.99</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-slate">🖱️</div>
+                    <div class="product-details-text">
+                      <strong>MX Master 3S Mouse</strong>
+                      <span class="product-sku">SKU: LOG-MX3S</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Logitech</span></td>
+                <td class="td-category"><span class="badge-cat cat-peripherals">Peripherals</span></td>
+                <td class="td-price"><span class="price-val">$99.99</span></td>
                 <td class="td-status"><span class="status-badge low-stock"><span class="dot"></span>Low Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.7 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #6b7280;"></span> Pale Grey</td>
-                <td class="td-desc">Ergonomic performance mouse with ultra-quiet clicks and 8K DPI track-on-glass sensor.</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.7</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #64748b;"></span>
+                    <span>Pale Grey</span>
+                  </div>
+                </td>
+                <td class="td-desc">Ergonomic performance mouse with ultra-quiet clicks and 8K DPI track-on-glass precision sensor.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for MX Master 3S">View</button>
+                </td>
               </tr>
 
-              <tr data-id="4">
+              <tr data-id="4" data-category="Displays" data-stock="in-stock" data-price="549.99" data-rating="4.6">
                 <td class="td-id">04</td>
-                <td class="td-name"><strong>UltraSharp 27" 4K USB-C Monitor</strong></td>
-                <td class="td-brand">Dell</td>
-                <td class="td-category"><span class="badge-cat">Displays</span></td>
-                <td class="td-price">$549.99</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-cyan">🖥️</div>
+                    <div class="product-details-text">
+                      <strong>UltraSharp 27" 4K Monitor</strong>
+                      <span class="product-sku">SKU: DEL-U2723</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Dell</span></td>
+                <td class="td-category"><span class="badge-cat cat-displays">Displays</span></td>
+                <td class="td-price"><span class="price-val">$549.99</span></td>
                 <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.6 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #94a3b8;"></span> Platinum Silver</td>
-                <td class="td-desc">Stunning 4K IPS panel with 98% DCI-P3 color coverage, 90W power delivery, and ultra-thin bezels.</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.6</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #94a3b8;"></span>
+                    <span>Platinum Silver</span>
+                  </div>
+                </td>
+                <td class="td-desc">Stunning 4K IPS panel with 98% DCI-P3 color coverage, 90W USB-C power delivery, and ultra-thin bezels.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for UltraSharp 27">View</button>
+                </td>
               </tr>
 
-              <tr data-id="5">
+              <tr data-id="5" data-category="Peripherals" data-stock="out-stock" data-price="119.00" data-rating="4.5">
                 <td class="td-id">05</td>
-                <td class="td-name"><strong>Keychron K2 Pro Mechanical Keyboard</strong></td>
-                <td class="td-brand">Keychron</td>
-                <td class="td-category"><span class="badge-cat">Peripherals</span></td>
-                <td class="td-price">$119.00</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-amber">⌨️</div>
+                    <div class="product-details-text">
+                      <strong>Keychron K2 Pro Keyboard</strong>
+                      <span class="product-sku">SKU: KEY-K2PRO</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Keychron</span></td>
+                <td class="td-category"><span class="badge-cat cat-peripherals">Peripherals</span></td>
+                <td class="td-price"><span class="price-val">$119.00</span></td>
                 <td class="td-status"><span class="status-badge out-stock"><span class="dot"></span>Out of Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.5 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #2e3440;"></span> Carbon Grey</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.5</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #334155;"></span>
+                    <span>Carbon Grey</span>
+                  </div>
+                </td>
                 <td class="td-desc">Custom wireless mechanical keyboard featuring hot-swappable switches and QMK/VIA key remapping.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for Keychron K2 Pro">View</button>
+                </td>
               </tr>
 
-              <tr data-id="6">
+              <tr data-id="6" data-category="Audio" data-stock="in-stock" data-price="229.00" data-rating="4.8">
                 <td class="td-id">06</td>
-                <td class="td-name"><strong>SoundLink Revolve+ II Bluetooth Speaker</strong></td>
-                <td class="td-brand">Bose</td>
-                <td class="td-category"><span class="badge-cat">Audio</span></td>
-                <td class="td-price">$229.00</td>
+                <td class="td-name">
+                  <div class="product-cell">
+                    <div class="product-avatar avatar-indigo">🔊</div>
+                    <div class="product-details-text">
+                      <strong>SoundLink Revolve+ II Speaker</strong>
+                      <span class="product-sku">SKU: BSE-RVL2</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-brand"><span class="brand-pill">Bose</span></td>
+                <td class="td-category"><span class="badge-cat cat-audio">Audio</span></td>
+                <td class="td-price"><span class="price-val">$229.00</span></td>
                 <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating"><span class="star">★</span> 4.8 <span class="rating-max">/ 5</span></td>
-                <td class="td-color"><span class="color-dot" style="background-color: #ffffff; border: 1px solid #cbd5e1;"></span> Triple Black</td>
+                <td class="td-rating">
+                  <div class="rating-box">
+                    <span class="star-icon">★</span>
+                    <span class="rating-num">4.8</span>
+                    <span class="rating-max">/5</span>
+                  </div>
+                </td>
+                <td class="td-color">
+                  <div class="color-badge">
+                    <span class="color-swatch" style="background-color: #0f172a;"></span>
+                    <span>Triple Black</span>
+                  </div>
+                </td>
                 <td class="td-desc">360-degree deep immersive sound with IP55 water resistance and convenient flexible carry handle.</td>
+                <td class="td-action">
+                  <button class="btn-row-action" title="View details for SoundLink Revolve+ II">View</button>
+                </td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <td colspan="4" class="tfoot-left">
-                  <strong>Total Inventory Value:</strong> 6 Unique Products Listed
+                  <div class="tfoot-summary-title">
+                    <strong>Catalog Summary:</strong>
+                    <span>6 Listed Hardware Items</span>
+                  </div>
                 </td>
-                <td class="tfoot-price"><strong>Avg: $304.50</strong></td>
-                <td colspan="4" class="tfoot-right">
-                  <span>5 In/Low Stock</span> &bull; <span>1 Out of Stock</span>
+                <td class="tfoot-price"><span class="avg-tag">Avg:</span> <strong>$304.50</strong></td>
+                <td colspan="5" class="tfoot-right">
+                  <div class="tfoot-pills">
+                    <span class="stock-summary-pill pill-green">5 Available</span>
+                    <span class="stock-summary-pill pill-red">1 Out of Stock</span>
+                  </div>
                 </td>
               </tr>
             </tfoot>
           </table>
         </div>
+
+        <!-- Empty Results State -->
+        <div id="no-results" class="no-results-state hidden">
+          <div class="no-results-icon">🔍</div>
+          <h3>No products match your criteria</h3>
+          <p>Try refining your search keyword or clearing the active category filters.</p>
+          <button id="btn-reset-filters" class="btn-secondary-sm">Reset All Filters</button>
+        </div>
+
       </div>
 
     </div>
   </main>
 
+  <!-- Product Details Slide-Over Modal / Modal Panel -->
+  <div id="product-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <span id="modal-category" class="badge-cat">Category</span>
+          <h2 id="modal-title" class="modal-title">Product Name</h2>
+          <span id="modal-sku" class="product-sku">SKU: N/A</span>
+        </div>
+        <button id="modal-close-btn" class="modal-close" aria-label="Close details modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-spec-grid">
+          <div class="spec-card">
+            <span class="spec-label">Brand</span>
+            <strong id="modal-brand" class="spec-val">-</strong>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Price</span>
+            <strong id="modal-price" class="spec-val price-highlight">-</strong>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Availability</span>
+            <div id="modal-status">-</div>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Customer Rating</span>
+            <strong id="modal-rating" class="spec-val">-</strong>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="modal-section-title">Color Finish</h4>
+          <div id="modal-color" class="color-badge modal-color-badge">-</div>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="modal-section-title">Overview & Specifications</h4>
+          <p id="modal-desc" class="modal-desc-text">-</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-close-action" class="btn-modal-secondary">Close</button>
+        <button id="modal-select-action" class="btn-modal-primary">Highlight in Table</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
-      <p>&copy; 2026 TechMart Catalog. All rights reserved. Built with semantic HTML5, CSS3, & Vanilla JavaScript.</p>
+      <div class="footer-brand">
+        <span class="logo-text">TechMart<span class="logo-accent">.pro</span></span>
+        <p class="footer-desc">Professional product information database built with HTML5, CSS3, & vanilla JavaScript.</p>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 TechMart Systems. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#privacy">Privacy Policy</a> &bull; 
+          <a href="#terms">Terms of Service</a> &bull; 
+          <a href="#support">Support</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast-notification" aria-live="polite"></div>
 
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
