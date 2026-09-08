@@ -1,451 +1,367 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Modern, interactive Product Information Catalog showcasing inventory data with rich HTML5 table semantics, CSS3 design tokens, and vanilla JavaScript.">
-  <title>Product Information | TechMart Pro Catalog</title>
-  
-  <!-- Modern Google Fonts: Plus Jakarta Sans & Outfit -->
+  <meta name="description" content="Next-Gen Product Information & Inventory Management System built with semantic HTML5, modern CSS3, and vanilla JavaScript.">
+  <title>NexusTech Pro • Product Information & Inventory Hub</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Custom Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Modern Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background Decorative Gradients -->
-  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <!-- Ambient Glow Effects -->
+  <div class="mesh-gradient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
 
-  <!-- Navigation Bar -->
-  <header class="navbar">
+  <!-- Top Announcement / Live Status Bar -->
+  <div class="top-status-bar">
+    <div class="container status-container">
+      <div class="status-left">
+        <span class="live-pulse"></span>
+        <span class="status-text"><strong>System Live:</strong> Hardware Catalog v3.2 &bull; Real-Time Inventory Sync</span>
+      </div>
+      <div class="status-right">
+        <span id="live-time-display" class="time-display">--:--:-- UTC</span>
+        <span class="status-badge-chip">Enterprise Tier</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">
-        <div class="logo-box">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-          </svg>
-        </div>
-        <span class="logo-text">TechMart<span class="logo-accent">.pro</span></span>
-      </a>
+      <div class="nav-left">
+        <a href="#" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text-group">
+            <span class="brand-name">Nexus<span class="brand-accent">Tech</span></span>
+            <span class="brand-tagline">PRODUCT HUB</span>
+          </div>
+        </a>
 
-      <nav class="nav-menu">
-        <a href="#dashboard" class="nav-link">Dashboard</a>
-        <a href="#products" class="nav-link active">Catalog</a>
-        <a href="#analytics" class="nav-link">Analytics</a>
-        <a href="#inventory" class="nav-link">Inventory</a>
-      </nav>
+        <!-- Main Nav Links -->
+        <nav class="nav-links">
+          <a href="#catalog" class="nav-link active" data-nav="catalog">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Products</span>
+          </a>
+          <a href="#analytics" class="nav-link" data-nav="analytics">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <span>Analytics</span>
+          </a>
+          <a href="#inventory" class="nav-link" data-nav="inventory">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            <span>Stock Alerts</span>
+          </a>
+        </nav>
+      </div>
 
-      <div class="nav-actions">
-        <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="btn-icon" aria-label="Toggle dark/light theme" title="Toggle theme">
+      <div class="nav-right">
+        <!-- Search Trigger / Quick Jump -->
+        <button id="nav-search-btn" class="nav-search-trigger" title="Search catalog (Press /)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Quick search...</span>
+          <kbd class="kbd-badge">/</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn-icon-pill" aria-label="Toggle theme" title="Switch dark/light mode">
           <span class="theme-icon sun-icon">☀️</span>
           <span class="theme-icon moon-icon">🌙</span>
         </button>
-        <a href="#export" id="btn-export-csv" class="btn-primary-sm">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Export Data</span>
-        </a>
+
+        <!-- Add New Product Button -->
+        <button id="btn-open-add-modal" class="btn-glow-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Add Product</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="main-content">
+  <!-- Main Content Area -->
+  <main class="main-body" id="main-content">
     <div class="container">
-      
+
       <!-- Hero Header Section -->
-      <section class="hero-section">
-        <div class="hero-badge">
-          <span class="badge-pulse"></span>
-          <span>Live Inventory Hub &bull; 2026 Edition</span>
-        </div>
-        <h1 class="hero-title">Product Information</h1>
-        <p class="hero-subtitle">
-          Manage, inspect, and analyze real-time hardware specifications, availability rates, and pricing across your product catalog.
-        </p>
-      </section>
-
-      <!-- Metric Stats Bar -->
-      <section class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon-wrapper stat-purple">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      <section class="hero-dashboard">
+        <div class="hero-content">
+          <div class="hero-chip">
+            <span class="chip-dot"></span>
+            <span>Product Catalog Master 2026</span>
           </div>
-          <div class="stat-info">
-            <span class="stat-label">Total Listed</span>
-            <span class="stat-value" id="stat-total-count">6 Items</span>
-          </div>
-          <div class="stat-badge stat-badge-positive">+12% this mo</div>
+          <h1 class="hero-heading">Product <span class="gradient-text">Information</span> Hub</h1>
+          <p class="hero-desc">
+            Explore, filter, add, edit, and analyze high-performance tech inventory in real-time with responsive HTML5 data table semantics and live analytics.
+          </p>
         </div>
 
-        <div class="stat-card">
-          <div class="stat-icon-wrapper stat-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-label">Avg. Product Price</span>
-            <span class="stat-value" id="stat-avg-price">$304.50</span>
-          </div>
-          <div class="stat-badge stat-badge-neutral">Median: $314</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-icon-wrapper stat-blue">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-label">In-Stock Rate</span>
-            <span class="stat-value" id="stat-stock-rate">83.3%</span>
-          </div>
-          <div class="stat-badge stat-badge-positive">5 Active</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-icon-wrapper stat-amber">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-label">Top Rating</span>
-            <span class="stat-value">4.9 / 5.0</span>
-          </div>
-          <div class="stat-badge stat-badge-positive">Series 9</div>
+        <div class="hero-quick-actions">
+          <button id="btn-export-csv" class="btn-action-outline" title="Export product data as CSV">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Export CSV</span>
+          </button>
+          <button id="btn-print-catalog" class="btn-action-outline" title="Print catalog summary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span>Print Report</span>
+          </button>
+          <button id="btn-reset-demo-data" class="btn-action-outline btn-danger-hover" title="Reset to original sample data">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+            <span>Reset Data</span>
+          </button>
         </div>
       </section>
 
-      <!-- Interactive Quick Status Toast / Selected Banner -->
-      <div id="selection-banner" class="selection-banner">
-        <div class="banner-content">
-          <div class="banner-icon-box">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <!-- Dynamic Interactive Stats Grid -->
+      <section class="stats-overview" id="stats-section">
+        <div class="stat-glass-card" data-stat="total">
+          <div class="stat-card-top">
+            <span class="stat-title">Total Products</span>
+            <div class="stat-icon icon-purple">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
           </div>
-          <div class="banner-text" id="banner-message">
-            <span class="banner-tag">Pro Tip</span> Click on any table row or press the details button to view comprehensive specs and live actions.
+          <div class="stat-main-number" id="stat-total-val">0</div>
+          <div class="stat-footer">
+            <span class="stat-trend positive" id="stat-categories-count">0 Categories</span>
+            <span class="stat-subtext">Active in database</span>
           </div>
         </div>
-        <button id="clear-selection-btn" class="btn-clear hidden" title="Clear selection">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          <span>Deselect</span>
-        </button>
+
+        <div class="stat-glass-card" data-stat="price">
+          <div class="stat-card-top">
+            <span class="stat-title">Average Price</span>
+            <div class="stat-icon icon-emerald">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          <div class="stat-main-number" id="stat-avg-price-val">$0.00</div>
+          <div class="stat-footer">
+            <span class="stat-trend neutral" id="stat-total-val-sum">Total Val: $0</span>
+            <span class="stat-subtext">Inventory sum</span>
+          </div>
+        </div>
+
+        <div class="stat-glass-card" data-stat="stock">
+          <div class="stat-card-top">
+            <span class="stat-title">In-Stock Rate</span>
+            <div class="stat-icon icon-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </div>
+          <div class="stat-main-number" id="stat-in-stock-rate">0%</div>
+          <div class="stat-footer">
+            <span class="stat-trend positive" id="stat-stock-breakdown">0 In Stock</span>
+            <span class="stat-subtext" id="stat-out-stock-breakdown">0 Out of Stock</span>
+          </div>
+        </div>
+
+        <div class="stat-glass-card" data-stat="rating">
+          <div class="stat-card-top">
+            <span class="stat-title">Catalog Satisfaction</span>
+            <div class="stat-icon icon-amber">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+          </div>
+          <div class="stat-main-number" id="stat-avg-rating-val">0.0 ★</div>
+          <div class="stat-footer">
+            <span class="stat-trend positive" id="stat-top-rated-name">Top: -</span>
+            <span class="stat-subtext">Customer rating</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Banner (Selected Product Quick Actions) -->
+      <section id="selection-banner" class="selection-banner-pro">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <div class="banner-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="banner-text-content" id="banner-text">
+              <strong>Interactive Catalog:</strong> Click any product row to highlight details, edit specifications, or trigger quick actions.
+            </div>
+          </div>
+          <div class="banner-right" id="banner-actions-group">
+            <button id="btn-banner-view" class="btn-banner-action hidden" title="View details in modal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <span>View Specs</span>
+            </button>
+            <button id="btn-banner-edit" class="btn-banner-action hidden" title="Edit this product">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              <span>Edit</span>
+            </button>
+            <button id="btn-clear-selection" class="btn-banner-clear hidden" title="Deselect item">✕ Deselect</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bulk Action Bar (Visible when rows are selected via checkbox) -->
+      <div id="bulk-action-bar" class="bulk-bar hidden">
+        <div class="bulk-left">
+          <span class="bulk-badge" id="bulk-selected-count">0 Selected</span>
+          <span class="bulk-label">Bulk operations available:</span>
+        </div>
+        <div class="bulk-right">
+          <button id="btn-bulk-in-stock" class="btn-bulk-opt" title="Mark selected as In Stock">Set In Stock</button>
+          <button id="btn-bulk-export" class="btn-bulk-opt" title="Export only selected">Export Selected</button>
+          <button id="btn-bulk-delete" class="btn-bulk-opt btn-bulk-danger" title="Delete selected items">Delete Selected</button>
+          <button id="btn-bulk-cancel" class="btn-bulk-close" title="Clear checkboxes">&times;</button>
+        </div>
       </div>
 
-      <!-- Main Table Card -->
-      <div class="table-card">
+      <!-- Main Showcase Card (Table & Grid Views) -->
+      <div class="catalog-card" id="catalog-card">
         
-        <!-- Toolbar: Filters, Search, Category Tabs -->
-        <div class="table-toolbar">
+        <!-- Controls Toolbar -->
+        <div class="catalog-toolbar">
+          
           <!-- Category Filter Pills -->
-          <div class="filter-pills" id="category-filters">
-            <button class="pill-btn active" data-category="all">All Items <span class="pill-count">6</span></button>
-            <button class="pill-btn" data-category="Audio">Audio <span class="pill-count">2</span></button>
-            <button class="pill-btn" data-category="Wearables">Wearables <span class="pill-count">1</span></button>
-            <button class="pill-btn" data-category="Peripherals">Peripherals <span class="pill-count">2</span></button>
-            <button class="pill-btn" data-category="Displays">Displays <span class="pill-count">1</span></button>
+          <div class="category-pill-group" id="category-pill-group" role="tablist" aria-label="Category filters">
+            <!-- Rendered dynamically by JavaScript -->
           </div>
 
-          <!-- Search & Availability Controls -->
-          <div class="toolbar-controls">
-            <div class="search-box">
-              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="table-search" placeholder="Search by name, brand, spec..." aria-label="Search products">
-              <span class="search-shortcut">/</span>
+          <!-- Search & Filter Controls -->
+          <div class="toolbar-search-controls">
+            
+            <!-- Search Bar -->
+            <div class="search-input-wrapper">
+              <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="global-search-input" placeholder="Search by name, brand, color, category..." aria-label="Search catalog">
+              <button id="btn-search-clear" class="btn-search-clear hidden" aria-label="Clear search">&times;</button>
+              <kbd class="search-kbd">/</kbd>
             </div>
 
-            <select id="stock-filter" class="custom-select" aria-label="Filter by availability">
-              <option value="all">All Availability</option>
-              <option value="in-stock">In Stock</option>
-              <option value="low-stock">Low Stock</option>
-              <option value="out-stock">Out of Stock</option>
-            </select>
+            <!-- Stock Filter -->
+            <div class="filter-select-wrapper">
+              <select id="stock-select-filter" class="modern-select" aria-label="Filter availability">
+                <option value="all">All Availability</option>
+                <option value="in-stock">In Stock</option>
+                <option value="low-stock">Low Stock</option>
+                <option value="out-stock">Out of Stock</option>
+              </select>
+            </div>
+
+            <!-- Price Sorting Dropdown -->
+            <div class="filter-select-wrapper">
+              <select id="price-sort-filter" class="modern-select" aria-label="Sort products">
+                <option value="default">Sort: Default (ID)</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating-desc">Rating: Highest First</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+              </select>
+            </div>
+
+            <!-- View Switcher (Table / Grid) -->
+            <div class="view-switcher-group" role="group" aria-label="View toggle">
+              <button id="btn-view-table" class="view-btn active" title="Switch to Table View" aria-pressed="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              </button>
+              <button id="btn-view-grid" class="view-btn" title="Switch to Grid Cards View" aria-pressed="false">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+            </div>
+
           </div>
         </div>
 
-        <!-- Table Information Summary Sub-header -->
-        <div class="table-sub-bar">
-          <div class="sub-bar-left">
-            <span class="sub-bar-dot"></span>
-            <span id="product-count" class="sub-bar-count">Showing 6 of 6 products</span>
+        <!-- Meta Sub-bar -->
+        <div class="catalog-sub-header">
+          <div class="sub-header-left">
+            <span class="live-dot-indicator"></span>
+            <span id="rendered-count-text" class="rendered-count">Showing 0 products</span>
           </div>
-          <div class="sub-bar-right">
-            <span class="sort-hint">💡 Click column headers to sort</span>
+          <div class="sub-header-right">
+            <span class="table-instruction">💡 Click headers to sort &bull; Double-click row for full specs</span>
           </div>
         </div>
 
-        <!-- Responsive HTML Table Container -->
-        <div class="table-responsive">
-          <table class="product-table" id="product-table">
+        <!-- VIEW 1: Modern Semantic HTML5 Table -->
+        <div class="table-scroll-container" id="table-view-container">
+          <table class="nexus-table" id="nexus-table">
             <thead>
               <tr>
-                <th scope="col" class="th-id">#</th>
-                <th scope="col" class="th-name sortable" data-sort="name">
+                <th scope="col" class="th-cb">
+                  <input type="checkbox" id="select-all-checkbox" aria-label="Select all products" class="custom-cb">
+                </th>
+                <th scope="col" class="th-id sortable-header" data-sort="id">
+                  <span>#</span>
+                  <span class="sort-indicator">⇅</span>
+                </th>
+                <th scope="col" class="th-product sortable-header" data-sort="name">
                   <span>Product Name</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
-                <th scope="col" class="th-brand sortable" data-sort="brand">
+                <th scope="col" class="th-brand sortable-header" data-sort="brand">
                   <span>Brand</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
-                <th scope="col" class="th-category sortable" data-sort="category">
+                <th scope="col" class="th-category sortable-header" data-sort="category">
                   <span>Category</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
-                <th scope="col" class="th-price sortable" data-sort="price">
+                <th scope="col" class="th-price sortable-header" data-sort="price">
                   <span>Price</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
-                <th scope="col" class="th-status sortable" data-sort="status">
+                <th scope="col" class="th-stock sortable-header" data-sort="stock">
                   <span>Availability</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
-                <th scope="col" class="th-rating sortable" data-sort="rating">
+                <th scope="col" class="th-rating sortable-header" data-sort="rating">
                   <span>Rating</span>
-                  <span class="sort-arrow">⇅</span>
+                  <span class="sort-indicator">⇅</span>
                 </th>
                 <th scope="col" class="th-color">Color</th>
                 <th scope="col" class="th-desc">Description</th>
-                <th scope="col" class="th-action">Action</th>
+                <th scope="col" class="th-actions">Actions</th>
               </tr>
             </thead>
-            <tbody id="table-body">
-              <tr data-id="1" data-category="Audio" data-stock="in-stock" data-price="399.99" data-rating="4.8">
-                <td class="td-id">01</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-purple">🎧</div>
-                    <div class="product-details-text">
-                      <strong>WH-1000XM5 Headphones</strong>
-                      <span class="product-sku">SKU: SNY-1005X</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Sony</span></td>
-                <td class="td-category"><span class="badge-cat cat-audio">Audio</span></td>
-                <td class="td-price"><span class="price-val">$399.99</span></td>
-                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.8</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #1a1a1a;"></span>
-                    <span>Midnight Black</span>
-                  </div>
-                </td>
-                <td class="td-desc">Industry-leading noise cancellation with 30-hour battery life and ultra-comfortable lightweight design.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for WH-1000XM5">View</button>
-                </td>
-              </tr>
-
-              <tr data-id="2" data-category="Wearables" data-stock="in-stock" data-price="429.00" data-rating="4.9">
-                <td class="td-id">02</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-blue">⌚</div>
-                    <div class="product-details-text">
-                      <strong>Apple Watch Series 9</strong>
-                      <span class="product-sku">SKU: APL-W945</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Apple</span></td>
-                <td class="td-category"><span class="badge-cat cat-wearables">Wearables</span></td>
-                <td class="td-price"><span class="price-val">$429.00</span></td>
-                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.9</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #1e293b;"></span>
-                    <span>Midnight Navy</span>
-                  </div>
-                </td>
-                <td class="td-desc">Advanced health sensors, bright Always-On Retina display, and intuitive double-tap gesture control.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for Apple Watch Series 9">View</button>
-                </td>
-              </tr>
-
-              <tr data-id="3" data-category="Peripherals" data-stock="low-stock" data-price="99.99" data-rating="4.7">
-                <td class="td-id">03</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-slate">🖱️</div>
-                    <div class="product-details-text">
-                      <strong>MX Master 3S Mouse</strong>
-                      <span class="product-sku">SKU: LOG-MX3S</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Logitech</span></td>
-                <td class="td-category"><span class="badge-cat cat-peripherals">Peripherals</span></td>
-                <td class="td-price"><span class="price-val">$99.99</span></td>
-                <td class="td-status"><span class="status-badge low-stock"><span class="dot"></span>Low Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.7</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #64748b;"></span>
-                    <span>Pale Grey</span>
-                  </div>
-                </td>
-                <td class="td-desc">Ergonomic performance mouse with ultra-quiet clicks and 8K DPI track-on-glass precision sensor.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for MX Master 3S">View</button>
-                </td>
-              </tr>
-
-              <tr data-id="4" data-category="Displays" data-stock="in-stock" data-price="549.99" data-rating="4.6">
-                <td class="td-id">04</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-cyan">🖥️</div>
-                    <div class="product-details-text">
-                      <strong>UltraSharp 27" 4K Monitor</strong>
-                      <span class="product-sku">SKU: DEL-U2723</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Dell</span></td>
-                <td class="td-category"><span class="badge-cat cat-displays">Displays</span></td>
-                <td class="td-price"><span class="price-val">$549.99</span></td>
-                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.6</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #94a3b8;"></span>
-                    <span>Platinum Silver</span>
-                  </div>
-                </td>
-                <td class="td-desc">Stunning 4K IPS panel with 98% DCI-P3 color coverage, 90W USB-C power delivery, and ultra-thin bezels.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for UltraSharp 27">View</button>
-                </td>
-              </tr>
-
-              <tr data-id="5" data-category="Peripherals" data-stock="out-stock" data-price="119.00" data-rating="4.5">
-                <td class="td-id">05</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-amber">⌨️</div>
-                    <div class="product-details-text">
-                      <strong>Keychron K2 Pro Keyboard</strong>
-                      <span class="product-sku">SKU: KEY-K2PRO</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Keychron</span></td>
-                <td class="td-category"><span class="badge-cat cat-peripherals">Peripherals</span></td>
-                <td class="td-price"><span class="price-val">$119.00</span></td>
-                <td class="td-status"><span class="status-badge out-stock"><span class="dot"></span>Out of Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.5</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #334155;"></span>
-                    <span>Carbon Grey</span>
-                  </div>
-                </td>
-                <td class="td-desc">Custom wireless mechanical keyboard featuring hot-swappable switches and QMK/VIA key remapping.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for Keychron K2 Pro">View</button>
-                </td>
-              </tr>
-
-              <tr data-id="6" data-category="Audio" data-stock="in-stock" data-price="229.00" data-rating="4.8">
-                <td class="td-id">06</td>
-                <td class="td-name">
-                  <div class="product-cell">
-                    <div class="product-avatar avatar-indigo">🔊</div>
-                    <div class="product-details-text">
-                      <strong>SoundLink Revolve+ II Speaker</strong>
-                      <span class="product-sku">SKU: BSE-RVL2</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="td-brand"><span class="brand-pill">Bose</span></td>
-                <td class="td-category"><span class="badge-cat cat-audio">Audio</span></td>
-                <td class="td-price"><span class="price-val">$229.00</span></td>
-                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
-                <td class="td-rating">
-                  <div class="rating-box">
-                    <span class="star-icon">★</span>
-                    <span class="rating-num">4.8</span>
-                    <span class="rating-max">/5</span>
-                  </div>
-                </td>
-                <td class="td-color">
-                  <div class="color-badge">
-                    <span class="color-swatch" style="background-color: #0f172a;"></span>
-                    <span>Triple Black</span>
-                  </div>
-                </td>
-                <td class="td-desc">360-degree deep immersive sound with IP55 water resistance and convenient flexible carry handle.</td>
-                <td class="td-action">
-                  <button class="btn-row-action" title="View details for SoundLink Revolve+ II">View</button>
-                </td>
-              </tr>
+            <tbody id="nexus-table-body">
+              <!-- Rendered dynamically by JavaScript -->
             </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="4" class="tfoot-left">
-                  <div class="tfoot-summary-title">
-                    <strong>Catalog Summary:</strong>
-                    <span>6 Listed Hardware Items</span>
-                  </div>
-                </td>
-                <td class="tfoot-price"><span class="avg-tag">Avg:</span> <strong>$304.50</strong></td>
-                <td colspan="5" class="tfoot-right">
-                  <div class="tfoot-pills">
-                    <span class="stock-summary-pill pill-green">5 Available</span>
-                    <span class="stock-summary-pill pill-red">1 Out of Stock</span>
-                  </div>
-                </td>
-              </tr>
+            <tfoot id="nexus-table-foot">
+              <!-- Rendered dynamically by JavaScript -->
             </tfoot>
           </table>
         </div>
 
+        <!-- VIEW 2: Modern eCommerce Grid View -->
+        <div class="grid-view-container hidden" id="grid-view-container">
+          <div class="product-cards-grid" id="product-cards-grid">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+        </div>
+
         <!-- Empty Results State -->
-        <div id="no-results" class="no-results-state hidden">
-          <div class="no-results-icon">🔍</div>
-          <h3>No products match your criteria</h3>
-          <p>Try refining your search keyword or clearing the active category filters.</p>
-          <button id="btn-reset-filters" class="btn-secondary-sm">Reset All Filters</button>
+        <div id="empty-state" class="empty-results-box hidden">
+          <div class="empty-icon-circle">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <h3 class="empty-title">No matching products found</h3>
+          <p class="empty-desc">We couldn't find any products matching your current search query or active filter selections.</p>
+          <div class="empty-actions">
+            <button id="btn-clear-all-filters" class="btn-glow-primary">Reset Filters</button>
+            <button id="btn-empty-add-product" class="btn-action-outline">+ Create New Product</button>
+          </div>
         </div>
 
       </div>
@@ -453,78 +369,232 @@
     </div>
   </main>
 
-  <!-- Product Details Slide-Over Modal / Modal Panel -->
-  <div id="product-modal" class="modal-backdrop" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-header">
-        <div class="modal-header-info">
-          <span id="modal-category" class="badge-cat">Category</span>
-          <h2 id="modal-title" class="modal-title">Product Name</h2>
-          <span id="modal-sku" class="product-sku">SKU: N/A</span>
+  <!-- Modal 1: Add / Edit Product Modal Dialog -->
+  <div id="product-form-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="form-modal-title">
+    <div class="modal-card form-modal-card">
+      <div class="modal-card-header">
+        <div class="modal-header-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
         </div>
-        <button id="modal-close-btn" class="modal-close" aria-label="Close details modal">&times;</button>
+        <div class="modal-header-titles">
+          <h2 id="form-modal-title" class="modal-h2">Add New Product</h2>
+          <p class="modal-subtext">Fill in the product specifications to update the live catalog.</p>
+        </div>
+        <button id="btn-close-form-modal" class="btn-modal-close" aria-label="Close dialog">&times;</button>
       </div>
 
-      <div class="modal-body">
-        <div class="modal-spec-grid">
-          <div class="spec-card">
-            <span class="spec-label">Brand</span>
-            <strong id="modal-brand" class="spec-val">-</strong>
+      <form id="product-form" class="modal-form" novalidate>
+        <input type="hidden" id="form-product-id" value="">
+
+        <div class="form-grid">
+          <!-- Product Name -->
+          <div class="form-group span-2">
+            <label for="form-name" class="form-label">Product Name <span class="req">*</span></label>
+            <input type="text" id="form-name" class="form-input" placeholder="e.g. Sony WH-1000XM5 Headphones" required>
+            <span class="field-error" id="err-name"></span>
           </div>
-          <div class="spec-card">
-            <span class="spec-label">Price</span>
-            <strong id="modal-price" class="spec-val price-highlight">-</strong>
+
+          <!-- Brand -->
+          <div class="form-group">
+            <label for="form-brand" class="form-label">Brand <span class="req">*</span></label>
+            <input type="text" id="form-brand" class="form-input" placeholder="e.g. Sony, Apple, Logitech" required>
+            <span class="field-error" id="err-brand"></span>
           </div>
-          <div class="spec-card">
-            <span class="spec-label">Availability</span>
-            <div id="modal-status">-</div>
+
+          <!-- Category -->
+          <div class="form-group">
+            <label for="form-category" class="form-label">Category <span class="req">*</span></label>
+            <input type="text" id="form-category" class="form-input" placeholder="e.g. Audio, Wearables, Displays" required list="category-datalist">
+            <datalist id="category-datalist">
+              <option value="Audio"></option>
+              <option value="Wearables"></option>
+              <option value="Peripherals"></option>
+              <option value="Displays"></option>
+              <option value="Accessories"></option>
+            </datalist>
+            <span class="field-error" id="err-category"></span>
           </div>
-          <div class="spec-card">
-            <span class="spec-label">Customer Rating</span>
-            <strong id="modal-rating" class="spec-val">-</strong>
+
+          <!-- Price -->
+          <div class="form-group">
+            <label for="form-price" class="form-label">Price (USD $) <span class="req">*</span></label>
+            <div class="input-addon-group">
+              <span class="input-addon">$</span>
+              <input type="number" id="form-price" class="form-input" placeholder="299.99" step="0.01" min="0.01" required>
+            </div>
+            <span class="field-error" id="err-price"></span>
+          </div>
+
+          <!-- Availability -->
+          <div class="form-group">
+            <label for="form-stock" class="form-label">Stock Availability <span class="req">*</span></label>
+            <select id="form-stock" class="form-input form-select" required>
+              <option value="in-stock">In Stock</option>
+              <option value="low-stock">Low Stock</option>
+              <option value="out-stock">Out of Stock</option>
+            </select>
+          </div>
+
+          <!-- Rating -->
+          <div class="form-group">
+            <label for="form-rating" class="form-label">Customer Rating (0.0 - 5.0) <span class="req">*</span></label>
+            <input type="number" id="form-rating" class="form-input" placeholder="4.8" step="0.1" min="1.0" max="5.0" required>
+            <span class="field-error" id="err-rating"></span>
+          </div>
+
+          <!-- Color -->
+          <div class="form-group">
+            <label for="form-color-name" class="form-label">Color Name & Hex <span class="req">*</span></label>
+            <div class="color-picker-input-group">
+              <input type="color" id="form-color-hex" class="color-picker-input" value="#4f46e5" title="Choose color swatch">
+              <input type="text" id="form-color-name" class="form-input" placeholder="e.g. Midnight Black" required>
+            </div>
+            <span class="field-error" id="err-color"></span>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group span-2">
+            <label for="form-desc" class="form-label">Detailed Description <span class="req">*</span></label>
+            <textarea id="form-desc" class="form-input form-textarea" rows="3" placeholder="Provide key hardware specifications, battery life, design characteristics..." required></textarea>
+            <span class="field-error" id="err-desc"></span>
           </div>
         </div>
 
-        <div class="modal-section">
-          <h4 class="modal-section-title">Color Finish</h4>
-          <div id="modal-color" class="color-badge modal-color-badge">-</div>
+        <div class="modal-card-footer">
+          <button type="button" id="btn-cancel-form" class="btn-action-outline">Cancel</button>
+          <button type="submit" id="btn-submit-form" class="btn-glow-primary">
+            <span id="form-submit-text">Save Product</span>
+          </button>
         </div>
+      </form>
+    </div>
+  </div>
 
-        <div class="modal-section">
-          <h4 class="modal-section-title">Overview & Specifications</h4>
-          <p id="modal-desc" class="modal-desc-text">-</p>
+  <!-- Modal 2: Product Quick-View Slide-Over Drawer -->
+  <div id="quick-view-drawer" class="drawer-backdrop" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-product-title">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span id="drawer-category-badge" class="cat-pill">Category</span>
+          <h2 id="drawer-product-title" class="drawer-title">Product Title</h2>
+          <span id="drawer-sku" class="drawer-sku-tag">SKU: ---</span>
         </div>
+        <button id="btn-close-drawer" class="btn-drawer-close" aria-label="Close drawer">&times;</button>
       </div>
 
-      <div class="modal-footer">
-        <button id="modal-close-action" class="btn-modal-secondary">Close</button>
-        <button id="modal-select-action" class="btn-modal-primary">Highlight in Table</button>
+      <div class="drawer-body">
+        
+        <!-- Main Spec Matrix -->
+        <div class="drawer-spec-matrix">
+          <div class="spec-tile">
+            <span class="spec-tile-label">Brand</span>
+            <span id="drawer-brand" class="spec-tile-val">--</span>
+          </div>
+          <div class="spec-tile">
+            <span class="spec-tile-label">Retail Price</span>
+            <span id="drawer-price" class="spec-tile-val price-glow">--</span>
+          </div>
+          <div class="spec-tile">
+            <span class="spec-tile-label">Inventory Status</span>
+            <div id="drawer-stock-badge" class="drawer-status-box">--</div>
+          </div>
+          <div class="spec-tile">
+            <span class="spec-tile-label">Customer Rating</span>
+            <div id="drawer-rating-badge" class="spec-tile-val rating-highlight">--</div>
+          </div>
+        </div>
+
+        <!-- Color Details -->
+        <div class="drawer-section">
+          <h4 class="drawer-subheading">Color Finish</h4>
+          <div class="drawer-color-card">
+            <span id="drawer-color-swatch" class="swatch-large"></span>
+            <span id="drawer-color-label" class="color-text-bold">--</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="drawer-section">
+          <h4 class="drawer-subheading">Overview & Specs</h4>
+          <p id="drawer-desc" class="drawer-desc-paragraph">--</p>
+        </div>
+
+        <!-- Interactive Rating Tester -->
+        <div class="drawer-section">
+          <h4 class="drawer-subheading">Quick Actions & Interactive Score</h4>
+          <div class="rating-interactive-box">
+            <span>Rate this item:</span>
+            <div class="star-rating-buttons" id="drawer-star-rating-group">
+              <button data-star="1" class="star-btn">★</button>
+              <button data-star="2" class="star-btn">★</button>
+              <button data-star="3" class="star-btn">★</button>
+              <button data-star="4" class="star-btn">★</button>
+              <button data-star="5" class="star-btn">★</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="drawer-footer">
+        <button id="btn-drawer-edit" class="btn-action-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          <span>Edit Product</span>
+        </button>
+        <button id="btn-drawer-delete" class="btn-action-outline btn-danger-hover">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <span>Delete</span>
+        </button>
+        <button id="btn-drawer-highlight" class="btn-glow-primary">Highlight in Table</button>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <span class="logo-text">TechMart<span class="logo-accent">.pro</span></span>
-        <p class="footer-desc">Professional product information database built with HTML5, CSS3, & vanilla JavaScript.</p>
+  <!-- Modal 3: Delete Confirmation Modal -->
+  <div id="delete-confirm-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-card delete-modal-card">
+      <div class="delete-icon-box">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
       </div>
-      <div class="footer-copy">
-        <p>&copy; 2026 TechMart Systems. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#privacy">Privacy Policy</a> &bull; 
-          <a href="#terms">Terms of Service</a> &bull; 
-          <a href="#support">Support</a>
+      <h3 class="delete-title">Delete Product?</h3>
+      <p class="delete-desc" id="delete-confirm-text">Are you sure you want to remove this product from the inventory catalog? This action can be undone.</p>
+      <div class="delete-actions">
+        <button id="btn-cancel-delete" class="btn-action-outline">Cancel</button>
+        <button id="btn-confirm-delete" class="btn-delete-solid">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modern Floating Toast Notification Container -->
+  <div id="toast-container" class="toast-stack" aria-live="polite"></div>
+
+  <!-- Modern Footer -->
+  <footer class="footer-modern">
+    <div class="container footer-container">
+      <div class="footer-left-brand">
+        <div class="brand-logo footer-logo">
+          <div class="brand-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <span class="brand-name">Nexus<span class="brand-accent">Tech</span> Pro</span>
         </div>
+        <p class="footer-mission">
+          Engineered with semantic HTML5 tables, modern CSS3 variables & glassmorphism, and responsive vanilla JavaScript. Zero frameworks, pure speed.
+        </p>
+      </div>
+
+      <div class="footer-right-info">
+        <div class="footer-stat-pills">
+          <span class="pill-badge">⚡ HTML5 Semantic Table</span>
+          <span class="pill-badge">🎨 CSS3 Glassmorphism</span>
+          <span class="pill-badge">🚀 Vanilla JS Engine</span>
+        </div>
+        <p class="footer-copyright">&copy; 2026 NexusTech Systems. Built with precision and modern web standards.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
-  <div id="toast" class="toast-notification" aria-live="polite"></div>
-
-  <!-- Custom JavaScript -->
+  <!-- Custom JavaScript Logic -->
   <script src="script.js"></script>
 </body>
 </html>

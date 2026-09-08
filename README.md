@@ -1,52 +1,61 @@
-# TechMart Pro — Product Information Catalog
+# NexusTech Pro — Modern Product Information & Inventory Hub
 
-A simple, clean, and modern **Product Information Website** built using pure **HTML5**, modern **CSS3**, and **vanilla JavaScript** with zero external libraries or frameworks.
+A feature-complete, modern **Product Information Website & Inventory Management Hub** built with pure **semantic HTML5**, modern **CSS3 with Glassmorphism**, and **vanilla JavaScript (ES6+)** — zero external frameworks or dependencies.
 
-![TechMart Pro Banner](https://img.shields.io/badge/HTML5-Semantic%20Table-E34F26?logo=html5&logoColor=white)
-![CSS3 Modern](https://img.shields.io/badge/CSS3-Design%20Tokens-1572B6?logo=css3&logoColor=white)
-![Vanilla JS](https://img.shields.io/badge/JavaScript-Vanilla%20ES6+-F7DF1E?logo=javascript&logoColor=black)
+![NexusTech Pro Badge](https://img.shields.io/badge/Tech%20Stack-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-6366f1?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Fully%20Functional%20%26%20Interactive-10b981?style=for-the-badge)
 
 ---
 
-## ✨ Modern UI & Feature Highlights
+## 🌟 Modern UI & Features
 
-1. **Semantic HTML5 `<table>`**:
-   - Complete semantic structure with `<table>`, `<thead>`, `<tbody>`, and `<tfoot>`.
-   - **8 Core Details**: Product Name, Brand, Category, Price, Availability, Rating, Color, and Description.
-   - Styled product avatars with SKU subtitles and color swatches.
+### 1. 📊 Live Dynamic Stats Overview
+- **Total Products** (calculated live with active category count).
+- **Average Price** ($) & Total Catalog Valuation.
+- **In-Stock Rate (%)** with green/red status breakdown.
+- **Customer Satisfaction Rating** with top-rated item highlights.
 
-2. **Ultra-Clean & Modern Styling (CSS3)**:
-   - **Dark / Light Mode**: Seamless theme toggle with local storage persistence.
-   - **Glassmorphism & Ambient Glow**: Subtle background gradient lighting and translucent sticky navbar.
-   - **Interactive Stat Metric Cards**: Highlights total listed items, average pricing, in-stock percentages, and top ratings.
-   - **Zebra Striping & Hover Elevation**: Alternating row backgrounds and smooth micro-hover lifts.
+### 2. ⚡ Full CRUD Functionality
+- **➕ Add New Product**: Interactive modal dialog with form validation (Name, Brand, Category, Price, Stock Status, Rating, Color picker, and Description).
+- **👁️ Read / Quick Specs**: Slide-over quick-view drawer displaying a full spec matrix, color swatch card, and interactive star rating buttons.
+- **✏️ Edit Product**: Edit existing specifications directly in the modal form.
+- **🗑️ Delete Product**: Safe deletion with confirmation modal and feedback toast.
+- **💾 LocalStorage Persistence**: Added, edited, and deleted products remain saved across page refreshes. "Reset Data" restores default sample records.
 
-3. **Rich Vanilla JavaScript Interactivity**:
-   - **Instant Row Selection**: Clicking a row highlights it with a primary gradient accent and updates the top status banner.
-   - **Interactive Column Sorting**: Click any table header (Name, Brand, Category, Price, Availability, Rating) to sort ascending or descending.
-   - **Multi-Filter System**: Filter by Category pills (Audio, Wearables, Peripherals, Displays), search query, or stock availability.
-   - **Slide-Over Quick-View Modal**: View full hardware specifications in an animated slide-over drawer.
-   - **CSV Export**: One-click catalog export to CSV.
-   - **Keyboard Shortcut**: Press `/` anywhere to focus the search bar.
+### 3. 🌓 Modern Design System & Dual Themes
+- **Dark Mode (Default)**: Deep canvas `#060911` with animated floating ambient mesh glow and frosted glass cards.
+- **Light Mode**: Crisp, clean, modern dashboard aesthetic with smooth theme transition.
+- **View Switcher**: Toggle seamlessly between **HTML5 Data Table View (☷)** and **Modern eCommerce Card Grid View (▦)**.
+
+### 4. 🔍 Instant Search, Filters & Sorting
+- **Real-Time Search**: Instant fuzzy matching across product names, brands, categories, colors, SKUs, and descriptions. Press `/` anywhere to focus search.
+- **Category Filter Pills**: Dynamic category buttons with live item counters (All, Audio, Wearables, Peripherals, Displays, Accessories).
+- **Availability Filter**: Filter by In Stock, Low Stock, or Out of Stock.
+- **Column Sorting**: Click any table header (Name, Brand, Category, Price, Stock, Rating) to sort ascending or descending with visual indicators.
+
+### 5. 📦 Bulk Operations & Data Export
+- **Multi-Select Checkboxes**: Select individual products or use "Select All" in the header.
+- **Bulk Action Bar**: Set stock status in bulk, delete selected items, or export selected rows.
+- **Export to CSV**: Instant `.csv` file generation and download.
+- **Print Report**: Pre-styled printable catalog view.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-├── index.html   # Semantic HTML5 markup, modal, stats, and table
-├── style.css    # Modern CSS3 design tokens, dark/light themes, responsive rules
-├── script.js    # Vanilla JS (filters, sorting, modal, theme, selection)
-└── README.md    # Documentation
+├── index.html   # Semantic HTML5 table, stats, modals, and drawer
+├── style.css    # Modern CSS3 design tokens, glassmorphism, responsive styles
+├── script.js    # Vanilla JS application engine & state management
+└── README.md    # Complete documentation
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running Locally
 
-Simply open `index.html` in your web browser:
+Open `index.html` directly in any web browser, or serve with:
 ```bash
-# Optional: run a local server
 python -m http.server 8000
 ```
-Then visit `http://localhost:8000` in your browser.
+Then visit `http://localhost:8000`.
