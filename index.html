@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Information | TechMart Catalog</title>
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">📦</span>
+        <span class="logo-text">TechMart</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#products" class="nav-link active">Products</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Header Section -->
+      <section class="page-header">
+        <div class="badge">Inventory Catalog 2026</div>
+        <h1 class="page-title">Product Information</h1>
+        <p class="page-subtitle">
+          Explore our curated collection of premium gadgets and accessories. Click on any product row to view instant highlights.
+        </p>
+      </section>
+
+      <!-- Interactive Status / Notification Card -->
+      <div id="selection-banner" class="selection-banner">
+        <div class="banner-content">
+          <span class="banner-icon">💡</span>
+          <div class="banner-text" id="banner-message">
+            <strong>Interactive Tip:</strong> Click on any product in the table below to select and view its quick summary.
+          </div>
+        </div>
+        <button id="clear-selection-btn" class="btn-clear hidden" title="Clear selection">✕ Clear</button>
+      </div>
+
+      <!-- Table Card Wrapper -->
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="table-title-group">
+            <h2 class="table-title">Featured Products List</h2>
+            <span class="table-count" id="product-count">Showing 6 Products</span>
+          </div>
+          <!-- Quick search filter -->
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="table-search" placeholder="Filter by name, brand, category..." aria-label="Search products">
+          </div>
+        </div>
+
+        <!-- Responsive Table Container -->
+        <div class="table-responsive">
+          <table class="product-table" id="product-table">
+            <thead>
+              <tr>
+                <th scope="col" class="th-id">#</th>
+                <th scope="col" class="th-name">Product Name</th>
+                <th scope="col" class="th-brand">Brand</th>
+                <th scope="col" class="th-category">Category</th>
+                <th scope="col" class="th-price">Price</th>
+                <th scope="col" class="th-status">Availability</th>
+                <th scope="col" class="th-rating">Rating</th>
+                <th scope="col" class="th-color">Color</th>
+                <th scope="col" class="th-desc">Description</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr data-id="1">
+                <td class="td-id">01</td>
+                <td class="td-name"><strong>WH-1000XM5 Wireless Headphones</strong></td>
+                <td class="td-brand">Sony</td>
+                <td class="td-category"><span class="badge-cat">Audio</span></td>
+                <td class="td-price">$399.99</td>
+                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.8 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #1a1a1a;"></span> Midnight Black</td>
+                <td class="td-desc">Industry-leading noise cancellation with 30-hour battery life and ultra-comfortable lightweight design.</td>
+              </tr>
+
+              <tr data-id="2">
+                <td class="td-id">02</td>
+                <td class="td-name"><strong>Apple Watch Series 9</strong></td>
+                <td class="td-brand">Apple</td>
+                <td class="td-category"><span class="badge-cat">Wearables</span></td>
+                <td class="td-price">$429.00</td>
+                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.9 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #3b4252;"></span> Midnight Navy</td>
+                <td class="td-desc">Advanced health sensors, bright Always-On Retina display, and intuitive double-tap gesture control.</td>
+              </tr>
+
+              <tr data-id="3">
+                <td class="td-id">03</td>
+                <td class="td-name"><strong>MX Master 3S Wireless Mouse</strong></td>
+                <td class="td-brand">Logitech</td>
+                <td class="td-category"><span class="badge-cat">Peripherals</span></td>
+                <td class="td-price">$99.99</td>
+                <td class="td-status"><span class="status-badge low-stock"><span class="dot"></span>Low Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.7 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #6b7280;"></span> Pale Grey</td>
+                <td class="td-desc">Ergonomic performance mouse with ultra-quiet clicks and 8K DPI track-on-glass sensor.</td>
+              </tr>
+
+              <tr data-id="4">
+                <td class="td-id">04</td>
+                <td class="td-name"><strong>UltraSharp 27" 4K USB-C Monitor</strong></td>
+                <td class="td-brand">Dell</td>
+                <td class="td-category"><span class="badge-cat">Displays</span></td>
+                <td class="td-price">$549.99</td>
+                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.6 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #94a3b8;"></span> Platinum Silver</td>
+                <td class="td-desc">Stunning 4K IPS panel with 98% DCI-P3 color coverage, 90W power delivery, and ultra-thin bezels.</td>
+              </tr>
+
+              <tr data-id="5">
+                <td class="td-id">05</td>
+                <td class="td-name"><strong>Keychron K2 Pro Mechanical Keyboard</strong></td>
+                <td class="td-brand">Keychron</td>
+                <td class="td-category"><span class="badge-cat">Peripherals</span></td>
+                <td class="td-price">$119.00</td>
+                <td class="td-status"><span class="status-badge out-stock"><span class="dot"></span>Out of Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.5 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #2e3440;"></span> Carbon Grey</td>
+                <td class="td-desc">Custom wireless mechanical keyboard featuring hot-swappable switches and QMK/VIA key remapping.</td>
+              </tr>
+
+              <tr data-id="6">
+                <td class="td-id">06</td>
+                <td class="td-name"><strong>SoundLink Revolve+ II Bluetooth Speaker</strong></td>
+                <td class="td-brand">Bose</td>
+                <td class="td-category"><span class="badge-cat">Audio</span></td>
+                <td class="td-price">$229.00</td>
+                <td class="td-status"><span class="status-badge in-stock"><span class="dot"></span>In Stock</span></td>
+                <td class="td-rating"><span class="star">★</span> 4.8 <span class="rating-max">/ 5</span></td>
+                <td class="td-color"><span class="color-dot" style="background-color: #ffffff; border: 1px solid #cbd5e1;"></span> Triple Black</td>
+                <td class="td-desc">360-degree deep immersive sound with IP55 water resistance and convenient flexible carry handle.</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4" class="tfoot-left">
+                  <strong>Total Inventory Value:</strong> 6 Unique Products Listed
+                </td>
+                <td class="tfoot-price"><strong>Avg: $304.50</strong></td>
+                <td colspan="4" class="tfoot-right">
+                  <span>5 In/Low Stock</span> &bull; <span>1 Out of Stock</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2026 TechMart Catalog. All rights reserved. Built with semantic HTML5, CSS3, & Vanilla JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
